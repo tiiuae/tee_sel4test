@@ -14,6 +14,7 @@ list(
         ${project_dir}/kernel
         ${project_dir}/tools/seL4/cmake-tool/helpers/
         ${project_dir}/tools/seL4/elfloader-tool/
+        ${project_dir}tools/seL4/gen_hss_payload/
         ${project_modules}
 )
 

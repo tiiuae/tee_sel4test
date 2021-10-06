@@ -39,3 +39,9 @@ if(KernelPlatformQEMUArmVirt)
 endif()
 
 GenerateSimulateScript()
+
+# Generate HSS payload binary. Only seL4 image is included.
+if(PolarfireAmp)
+    find_package(gen_hss_payload REQUIRED)
+    gen_hss_payload_import_project()
+endif()
