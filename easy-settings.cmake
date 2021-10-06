@@ -33,3 +33,15 @@ set(KernelSel4Arch "" CACHE STRING "aarch32, aarch64, arm_hyp, ia32, x86_64, ris
 set(LibSel4TestPrinterRegex ".*" CACHE STRING "A POSIX regex pattern used to filter tests")
 set(LibSel4TestPrinterHaltOnTestFailure OFF CACHE BOOL "Halt on the first test failure")
 mark_as_advanced(CLEAR LibSel4TestPrinterRegex LibSel4TestPrinterHaltOnTestFailure)
+
+# Polarfire AMP configuration
+if(AMP_CONFIG)
+    set(PLATFORM "polarfire" CACHE STRING "Platform to test" FORCE)
+    set(KernelRiscvExtD ON CACHE BOOL "")
+    set(UseRiscVOpenSBI OFF CACHE BOOL "")
+    set(IMAGE_START_ADDR "0x80200000" CACHE STRING "")
+    set(RISCV64 ON CACHE BOOL "")
+    set(ElfloaderImage "binary" CACHE STRING "")
+    set(PolarfireAmp ON CACHE BOOL "")
+    add_compile_definitions(KERNEL_ELF_PADDR_BASE_START=0x1000000)
+endif()
